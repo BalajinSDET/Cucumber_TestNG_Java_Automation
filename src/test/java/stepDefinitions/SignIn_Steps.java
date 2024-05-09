@@ -4,37 +4,66 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import pageObjects.Index_Page;
+import pageObjects.Job_Provider_SignInPage;
+import pageObjects.OTP_VerificationPage;
+import utils.TestContextSetup;
 
 
 public class SignIn_Steps {
+
+    public WebDriver driver;
+    TestContextSetup testContextSetup;
+    public Index_Page ip;
+    public Job_Provider_SignInPage jpsip;
+    public OTP_VerificationPage otpvp;
+
+    public SignIn_Steps(TestContextSetup testContextSetup) {
+        this.testContextSetup = testContextSetup;
+        this.ip = testContextSetup.pageObjectManager.getIndexPage();
+        this.jpsip = testContextSetup.pageObjectManager.getSignInPageJobProvider();
+        this.otpvp = testContextSetup.pageObjectManager.getOTPverificationPage();
+    }
+
     @Given("User is enter the Ihp website URL")
-    public void userIsEnterTheIhpWebsiteURL() {
+    public void userIsEnterTheIhpWebsiteURL() throws InterruptedException {
+        Assert.assertTrue(this.ip.VerifyIhpLogo());
     }
 
     @When("The user should able to click on the Login as Job provider button in the HomePage")
     public void theUserShouldAbleToClickOnTheLoginAsJobProviderButtonInTheHomePage() {
+        this.ip.Click_LoginAsJobProvider();
     }
 
     @Then("User should navigated to the sign in page")
     public void userShouldNavigatedToTheSignInPage() {
+        Assert.assertTrue(jpsip.Verify_SignInPage());
     }
 
     @And("The user enter their Email Id as {string} and Password as {string}")
-    public void theUserEnterTheirEmailIdAsAndPasswordAs(String arg0, String arg1) {
+    public void theUserEnterTheirEmailIdAsAndPasswordAs(String email, String password) {
+        jpsip.EnterEmailId(email);
+        jpsip.EnterPassword(password);
     }
 
     @When("User clicks on the sign in button")
     public void userClicksOnTheSignInButton() {
+        jpsip.ClickSignInButton();
     }
 
     @And("User should navigated to the KYC Verification")
     public void userShouldNavigatedToTheKYCVerification() {
+        otpvp.verifyKYCPage();
     }
 
     @And("User clicks the email verification radio button and then user clicks the submit button")
     public void userClicksTheEmailVerificationRadioButtonAndThenUserClicksTheSubmitButton() {
+        otpvp.ClickEmailRadioBtn();
+        otpvp.ClickSubmitBtnOnKycPage();
+        otpvp.EnterOTP();
+        otpvp.ClickAndVerifyOTPSubmitBtn();
     }
 
     @Then("User navigates to the dashboard page of the Ihp project successfully")

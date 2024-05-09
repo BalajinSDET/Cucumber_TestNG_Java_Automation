@@ -1,9 +1,18 @@
 package pageObjects;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.OtpReader;
 
 public class OTP_VerificationPage {
+    public WebDriver driver;
+
+    public OTP_VerificationPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+
     @FindBy(xpath = " //div[contains(text(),'OTP Verification')]")
     public WebElement verifyHeading;
 
@@ -22,4 +31,24 @@ public class OTP_VerificationPage {
     @FindBy(xpath = "//h5[contains(text(),'Submit ')]")
     public WebElement VerifyOTPSubmitBtn;
 
+    public boolean verifyKYCPage() {
+        return verifyHeading.isDisplayed();
+    }
+
+    public void ClickEmailRadioBtn() {
+        emailRBtn.click();
+    }
+
+    public void ClickSubmitBtnOnKycPage() {
+        submitBtn.click();
+    }
+
+    public void EnterOTP() {
+        String otp = OtpReader.getOtp();
+        enterOTP.sendKeys(otp);
+    }
+
+    public void ClickAndVerifyOTPSubmitBtn() {
+        VerifyOTPSubmitBtn.click();
+    }
 }

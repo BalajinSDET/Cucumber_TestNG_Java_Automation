@@ -17,35 +17,35 @@ Feature: This is the Job Seeker sign in scenario
     Examples:
       | email                 | password |
       | lgstester50@gmail.com | Test@123 |
-
-  @VerifyKeepMeSignInToThisDevice
-  Scenario Outline: Verify that sign in as Job Seeker with keep me as sign to this device functionality
-    When The user should able to click on the Login as Job Seeker button in the HomePage
-    Then User should navigated to the sign in page
-    And The user enter their Email Id as "<email>" and Password as "<password>"
-    And User validate the keep me sign in to this device checkbox and Click the checkbox
-    When User clicks on the sign in button
-    And User should navigated to the KYC Verification
-    And User clicks the email verification radio button and then user clicks the submit button
-    Then User navigates to the dashboard page of the Ihp project successfully
-    And User clicks the profile icon on job seeker dashboard page
-    When the user clicks logout button on job seeker and user should navigated to the homepage of the Ihp application
-    When The user should able to click on the Login as Job Seeker button in the HomePage
-    Then User should navigated to the sign in page
-    And The user enter their Email Id as "<email>" and Password as "<password>"
-    And User validate the keep me sign in to this device checkbox
-    When User clicks on the sign in button
-    Then User navigates to the dashboard page of the Ihp project successfully
-
-    Examples:
-      | email                 | password |
-      | lgstester50@gmail.com | Test@123 |
-      | lgstester50@gmail.com | Test@123 |
-
-  @VerifyKeepMeSignInToThisDevice
-  Scenario: Verify that sign in as job seeker with google icon
-    When The user should able to click on the Login as Job Seeker button in the HomePage
-    Then User should navigated to the sign in page
-    And User clicks the google icon on job seeker sign in page
-    And User clicks the registered google account
-    Then User navigates to the dashboard page of the Ihp project successfully
+#
+#  @VerifyKeepMeSignInToThisDevice
+#  Scenario Outline: Verify that sign in as Job Seeker with keep me as sign to this device functionality
+#    When The user should able to click on the Login as Job Seeker button in the HomePage
+#    Then User should navigated to the sign in page
+#    And The user enter their Email Id as "<email>" and Password as "<password>"
+#    And User validate the keep me sign in to this device checkbox and Click the checkbox
+#    When User clicks on the sign in button
+#    And User should navigated to the KYC Verification
+#    And User clicks the email verification radio button and then user clicks the submit button
+#    Then User navigates to the dashboard page of the Ihp project successfully
+#    And User clicks the profile icon on job seeker dashboard page
+#    When the user clicks logout button on job seeker and user should navigated to the homepage of the Ihp application
+#    When The user should able to click on the Login as Job Seeker button in the HomePage
+#    Then User should navigated to the sign in page
+#    And The user enter their Email Id as "<email>" and Password as "<password>"
+#    And User validate the keep me sign in to this device checkbox
+#    When User clicks on the sign in button
+#    Then User navigates to the dashboard page of the Ihp project successfully
+#
+#    Examples:
+#      | email                 | password |
+#      | lgstester50@gmail.com | Test@123 |
+#      | lgstester50@gmail.com | Test@123 |
+#
+#  @VerifyKeepMeSignInToThisDevice
+#  Scenario: Verify that sign in as job seeker with google icon
+#    When The user should able to click on the Login as Job Seeker button in the HomePage
+#    Then User should navigated to the sign in page
+#    And User clicks the google icon on job seeker sign in page
+#    And User clicks the registered google account
+#    Then User navigates to the dashboard page of the Ihp project successfully

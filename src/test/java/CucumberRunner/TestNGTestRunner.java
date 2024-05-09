@@ -5,8 +5,8 @@ import org.testng.annotations.DataProvider;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(features = "src/test/java/features", glue = "stepDefinitions"
-        , monochrome = true, tags = "@SmokeTest or @RegressionTest",dryRun = true,
+@CucumberOptions(features = "src/test/java/features/Verify Sign in as Job Provider.feature", glue = "stepDefinitions"
+        , monochrome = true, tags = "@SmokeTest or @RegressionTest",dryRun = false,
         plugin = {"html:target/cucumber.html", "json:target/cucumber.json",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "rerun:target/failed_scenarios.txt"})

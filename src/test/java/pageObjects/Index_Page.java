@@ -20,7 +20,8 @@ public class Index_Page {
     @FindBy(xpath = "//h4[contains(text(),'LOGIN AS JOBSEEKER')]")
     public WebElement loginAsJobSeeker;
 
-    public boolean VerifyIhpLogo() {
+    public boolean VerifyIhpLogo() throws InterruptedException {
+        Thread.sleep(3000);
         return IHPLOGO.isDisplayed();
     }
 
